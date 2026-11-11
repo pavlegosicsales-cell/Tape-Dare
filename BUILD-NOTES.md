@@ -128,8 +128,34 @@ mora da bude ispravan.
 1. **Forma još ne šalje nigde.** `ENDPOINT` na vrhu `main.js` je prazan. Pokrenite
    Skill 03 (`form-backend-setup`).
 2. **Domen je pretpostavljen.** `tapedare.rs` u `canonical` i `og:url`.
-3. **Nedostaje od klijenta:** imejl, adresa radionice, godine rada, tačna zona
-   pokrivanja prevozom. Sajt ništa od toga ne tvrdi.
+3. **Nedostaje od klijenta:** godine rada i tačna zona pokrivanja prevozom.
+   Sajt ništa od toga ne tvrdi. Imejl i adresa radionice su stigli 11.11.
 4. **Messenger link** `m.me/Tapedare` je izveden iz imena stranice. Proveriti da li
    otvara pravi razgovor.
 5. **Nema recenzija.** Na Facebooku je 0 ocena. Nijedna nije izmišljena.
+
+## Dopuna 11.11.2026: nameštaj po meri
+
+Klijent je tražio da se jasno istakne da pravi i nameštaj po meri, ne samo da
+presvlači. Uz to je poslao imejl, adresu radionice i nove slike (Instagram).
+
+- **Nova tamna sekcija `#po-meri`** između „Šta radimo" i „Zašto Tapedare".
+  Dizajn su sticky kartice `.project-stack` iz Deko Pro sekcije „Tri modela"
+  (do sada neiskorišćen blok). Dve kartice: capitonne krevet po meri i
+  uzglavlja/zidni paneli. Ispod 992 px kartice nisu lepljive, jer su više od
+  ekrana, pa bi druga prekrila dugme prve.
+- **Navigacija:** dodat „Po meri", izbačen „Početna" (logo vodi na početnu).
+  Uži razmak menija sada važi do 1400 px, a do 1100 px je još zbijeniji.
+  Izmereno od 1024 do 1920 px na sve tri strane: dugme ostaje 17 px unutar trake.
+- **Šta radimo:** prvi red je „Nameštaj po meri", fotografija je krevet iz ugla.
+- **Pitanje 07** o nameštaju po meri. Naslov, opis i hero tekst pominju „po meri".
+- **Forma:** nova opcija „Nov nameštaj po meri" u koraku 1, preskače korake 2 i 4
+  kao zidni paneli (ukupno 4 koraka).
+- **Kontakt:** `tapedare.tapetarija@gmail.com` i radionica Novice Petkovića 15,
+  Borča (link na Google mape), u footeru, na kontakt strani, u JSON-LD i kao
+  kanal za brisanje podataka u politici privatnosti.
+- **Kako ide, korak 01:** stara zelena fotelja slikana telefonom, umesto
+  ponovljene „pre" slike iz klizača.
+- Nove slike: `krevet-capitonne`, `krevet-capitonne-ugao`, `fotelja-pre-slikanje`
+  (+ `-800`), originali su u `images/instagram/`. Ljubičasta ugaona sa
+  Instagrama nije korišćena (mutna, a slike „posle" nisu stigle).

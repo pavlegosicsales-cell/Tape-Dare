@@ -2525,10 +2525,18 @@ a, button, .choice, .service-row, .faq-q {
 /* "Tapedare" i "Pre i posle" su duzi od naziva u referenci, pa je na
    1024 px dugme u navu izlazilo 120 px van ekrana. Hamburger krece tek
    ispod 992 px, a do tada meni dobija uze razmake. */
-@media (min-width: 992px) and (max-width: 1240px) {
+/* Meni ima i link Po meri, pa uzi razmak vazi do 1400 px, a do 1100 px
+   je jos zbijeniji. Meri se: dugme ne sme da izadje iz trake. */
+@media (min-width: 992px) and (max-width: 1400px) {
   .nav-menu { gap: 22px; padding: 10px 22px; }
   .nav-link { font-size: 16px; }
 }
+@media (min-width: 992px) and (max-width: 1100px) {
+  .nav-menu { gap: 14px; padding: 10px 10px; }
+  .nav-link { font-size: 15px; }
+  .nav-wordmark { font-size: 21px; }
+}
+.footer-mail { overflow-wrap: anywhere; }
 
 /* --- Pre i posle, klizac preko dve slike ---------------------------------
    Isti raspored kao .texture-split, samo sto je umesto videa poredjenje.
@@ -2609,3 +2617,9 @@ a, button, .choice, .service-row, .faq-q {
 .ba-range:focus-visible + .ba-line .ba-knob { outline: 3px solid var(--white); outline-offset: 3px; }
 
 .ba-hint { font-size: 14px; color: var(--white-70); }
+
+/* Po meri: na telefonu i tabletu kartica je visa od ekrana, pa bi lepljenje
+   pustilo drugu karticu preko dugmeta prve. Ispod 992 px idu jedna ispod druge. */
+@media (max-width: 991px) {
+  .project { position: static; }
+}
