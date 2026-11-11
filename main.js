@@ -6,7 +6,7 @@
    tekstovi i dodat je klizac pre/posle.
    ========================================================================== */
 
-/* Paste the Apps Script URL here after running Skill 03 (Form Backend Setup) */
+/* Apps Script /exec URL (apps-script/Code.gs). Prazno = forma samo loguje u konzolu. */
 const ENDPOINT = '';
 
 (function () {
@@ -293,13 +293,17 @@ const ENDPOINT = '';
       console.info('[Tapedare] ENDPOINT je prazan. Ovo bi bilo poslato:', payload);
       return Promise.resolve({ ok: true, simulated: true });
     }
-    return fetch(ENDPOINT, {
-      method: 'POST',
-      // Apps Script web apps reject preflighted requests, so keep it simple.
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
-    }).then(function (res) {
-      if (!res.ok) throw new Error('Request failed with status ' + res.status);
+    /* GET sa parametrima, jer Apps Script preusmerava POST i usput gubi telo.
+       no-cors znaci da odgovor ne moze da se procita: potvrda se prikazuje
+       cim zahtev ode, a greska samo kad mreza uopste ne radi. */
+    const params = new URLSearchParams();
+    Object.keys(payload).forEach(function (k) {
+      if (payload[k] != null && payload[k] !== '') params.append(k, payload[k]);
+    });
+    return fetch(ENDPOINT + '?' + params.toString(), {
+      method: 'GET',
+      mode: 'no-cors'
+    }).then(function () {
       return { ok: true };
     });
   }
